@@ -68,8 +68,8 @@
         $pager = $("<ul class='" + namespace + "_tabs " + namespaceIdx + "_tabs' />"),
 
         // Styles for visible and hidden slides
-        visible = {"float": "left", "position": "relative", "opacity": 1, "zIndex": 2},
-        hidden = {"float": "none", "position": "absolute", "opacity": 0, "zIndex": 1},
+        visible = {"float": "left", "position": "relative", "display": "block", "zIndex": 2},
+        hidden = {"float": "none", "position": "absolute", "display": "none", "zIndex": 1},
 
         // Detect transition support
         supportsTransitions = (function () {
@@ -114,7 +114,7 @@
                 $(this)
                   .removeClass(visibleClass)
                   .css(hidden)
-                  .css("opacity", 1);
+                  .css("display", "none");
               })
               .eq(idx)
               .fadeIn(fadeTime, function () {
@@ -163,10 +163,10 @@
           .show()
           .css({
             // -ms prefix isn't needed as IE10 uses prefix free version
-            "-webkit-transition": "opacity " + fadeTime + "ms ease-in-out",
-            "-moz-transition": "opacity " + fadeTime + "ms ease-in-out",
-            "-o-transition": "opacity " + fadeTime + "ms ease-in-out",
-            "transition": "opacity " + fadeTime + "ms ease-in-out"
+            "-webkit-transition": "display " + fadeTime + "ms ease-in-out",
+            "-moz-transition": "display " + fadeTime + "ms ease-in-out",
+            "-o-transition": "display " + fadeTime + "ms ease-in-out",
+            "transition": "display " + fadeTime + "ms ease-in-out"
           });
       }
 
